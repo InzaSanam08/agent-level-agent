@@ -1,8 +1,12 @@
 import asyncio
+import os
 from openai import AsyncOpenAI
 from agents import Agent, OpenAIChatCompletionsModel, Runner, set_tracing_disabled
+from dotenv import load_dotenv
 
-gemini_api_key = "AIzaSyDZpyIVi1ZfiBUpvPIIOgL1KGFLK7lX1Uk"
+load_dotenv()
+
+gemini_api_key = os.getenv("GEMINI_API_KEY")
 
 client = AsyncOpenAI(
     api_key=gemini_api_key,
